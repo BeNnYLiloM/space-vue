@@ -1,18 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="flex flex-column align-center">
+    <img src="@/assets/logo.svg" />
+
+    <div class="flex mt-3">
+      <router-link class="btn btn-default mr-1" :to="{name: 'launchpads'}">
+        Launchpads
+      </router-link>
+      <router-link class="btn btn-default ml-1" :to="{name: 'satellites'}">
+        Satellites
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+  name: 'Home'
 }
 </script>
