@@ -24,8 +24,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 100vw;
+  /* height: 100vh;
+  width: 100vw; */
+  flex: 1;
 }
 .lds-roller {
   display: inline-block;

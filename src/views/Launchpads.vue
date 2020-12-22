@@ -2,10 +2,6 @@
   <div>
     <Loader v-if="isLoading" />
 
-    <router-link class="back" :to="{name: 'home'}">
-      <img src="@/assets/icons/arrow-left.svg" />
-    </router-link>
-
     <div v-if="launchpads">
       <div class="container">
         <div class="flex flex-wrap">

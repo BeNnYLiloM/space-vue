@@ -1,22 +1,14 @@
 <template>
   <div>
     <router-link class="back" :to="{name: 'launchpads'}">
-      <img src="@/assets/icons/arrow-left.svg" />
+      <img src="@/assets/img/icons/arrow-left.svg" />
     </router-link>
 
     <Loader v-if="isLoading" />
 
     <div class="container" v-else>
-      <div v-if="info">
-        <div class="code">
-          {{ info }}
-        </div>
-      </div>
-
-      <div v-else-if="!isLoading">
-        <div class="empty">
-          This launchpad don't have failure launches
-        </div>
+      <div class="code">
+        {{ info }}
       </div>
     </div>
   </div>
@@ -32,7 +24,10 @@ export default {
     return {
       id: this.$route.params.id,
       isLoading: true,
-      info: null
+      info: {
+        launchpad: '',
+        all_failures: []
+      }
     }
   },
   components: {
@@ -41,10 +36,8 @@ export default {
   mounted() {
     launchpadApi.getLaunchpadById(this.id).then(launchpad => {
       const launches = launchpad.launches
-      const info = {
-        launchpad: launchpad.name,
-        all_failures: []
-      }
+
+      this.info.launchpad = launchpad.name
 
       if (launches.length) {
         launches.forEach(launche => {
@@ -57,10 +50,8 @@ export default {
             shortInfoAboutLaunche.failures.push(failure.reason)
           )
 
-          info.all_failures.push(shortInfoAboutLaunche)
+          this.info.all_failures.push(shortInfoAboutLaunche)
         })
-
-        this.info = info
       }
 
       this.isLoading = false
@@ -75,14 +66,5 @@ export default {
   border-radius: 6px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
   padding: 20px;
-}
-
-.code {
-  white-space: break-spaces;
-  padding: 14px 20px 18px;
-}
-
-.empty {
-  font-size: 24px;
 }
 </style>

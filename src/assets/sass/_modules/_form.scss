@@ -1,0 +1,18 @@
+.form {
+  &__item {
+    position: relative;
+  }
+
+  &__filter-btn {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    min-width: 200px;
+    justify-content: center;
+
+    img {
+      margin-right: 8px;
+      width: 20px;
+    }
+  }
+}

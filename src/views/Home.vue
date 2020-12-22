@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-column align-center">
-    <img src="@/assets/logo.svg" />
+  <div class="container flex flex-column align-center">
+    <img src="@/assets/img/logo.svg" />
 
     <div class="flex mt-3">
       <router-link class="btn btn-default mr-1" :to="{name: 'launchpads'}">
